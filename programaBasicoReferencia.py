@@ -1,4 +1,4 @@
-#Comentários são com hastag
+#Biblioteca de consulta de código para lembrar em aula
 print('')
 print('Primeiro programa')
 NOME = input('Digite seu nome: ');
@@ -44,7 +44,7 @@ soma = 0
 while (int(contador) <= 2):
     valor = int(input('Digite um valor: '))
     soma = int(soma) + valor
-    contador = int(contador) + 1
+    contador = int(contador) + 1 #para repetição é necessário um limite final
     media = soma/2
 print (f"A média é: {media}")
 
