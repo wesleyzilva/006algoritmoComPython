@@ -59,3 +59,30 @@ while (valor<99):
     else:
         print(valor, 'impar')
         valor=valor+1
+
+#Exercício calculo de raizes da equação de segundo grau
+#ax²+bx+c=0 e delta=b²-4*a*c
+#se delta < 0 não existem raizes reais
+#se delta = 0 existe uma raiz real
+#se delta > 0 existem duas raizes reais
+    #x=(-b+-Raiz(delta))/2*a
+print("");
+print("Cálculo de equação de segundo grau.");
+a = int(input("Digite um numero inteiro a: "));
+b = int(input("Digite um numero inteiro b: "));
+c = int(input("Digite um numero inteiro c: "));
+delta = float(b*b-4*a*c)
+print("Delta é: ", delta)
+
+if (delta < 0):
+    print("Não existem raizes reais, favor tentar com outros números.")
+if (delta == 0): 
+    x = float((-b)/2*a)
+    print("O valor de x é: ", x)
+if (delta > 0):
+    raizDelta = math.sqrt(delta) #Raiz quadrada com uma bilbioteca
+    x1 = (-b+raizDelta)/(2*a)
+    x2 = (-b-raizDelta)/(2*a)
+    print("X1: ", x1, " X2: ", x2)
+
+#Exercicio de descontos
