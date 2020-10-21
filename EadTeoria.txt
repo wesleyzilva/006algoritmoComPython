@@ -1,0 +1,513 @@
+Uma string (=tipo str) é uma sequência de caracteres. 
+
+Em Python, podemos representar uma string colocando-a entre aspas (“”) ou apóstrofes (‘’).  O uso desses 2 marcadores é útil quando queremos utilizar um deles dentro da string, como no exemplo seguinte:
+
+texto = "Esta string usa 'aspas' como demarcador"
+print(texto)
+novo_texto = 'Esta string usa "apóstrofes" como demarcador'
+print(novo_texto)
+   O código acima produz a seguinte saída:
+
+
+Esta string usa 'aspas' como demarcador
+Esta string usa "apóstrofes" como demarcador
+Uma cadeia que não possui nenhum caractere, chamada de string vazia, é também considerada string.
+
+Uma string vazia é representada por apóstrofes (‘’) ou aspas (“”), sem nenhum caractere.
+Uma string com um ou mais espaços em branco é diferente de uma string vazia.
+
+###############################################################################################
+
+2. Criação e indexação de Strings
+Uma string em Python é um tipo especial de Lista que não pode ser alterada. Em outras palavras, uma string é uma lista imutável que armazena um conjunto de caracteres. 
+Uma das formas de se criar uma variável do tipo string é por meio do operador de atribuição (=), conforme no exemplo a seguir:
+ 
+Str = "Luther College"
+A string Str pode ser representada graficamente conforme a figura a seguir, onde cada caractere ocupa uma posição diferente na lista. 
+
+
+ Para acessar um caractere de uma string, usamos o valor do seu índice, que representa a posição do caractere na lista. Por exemplo, para imprimirmos o caractere h da string Str usamos o seu índice 3, da seguinte forma: 
+
+print(Str[3])
+
+Os caracteres de uma string são indexados da esquerda para a direita, a partir posição 0 até a posição 13 (conforme na figura anterior).
+
+Assim como em uma lista qualquer, os caracteres de uma string também podem ser indexados da direita para a esquerda, a partir posição -1, que representa o índice do último elemento (conforme ilustrado na figura). Por exemplo, para imprimir o último caractere de Str, ou seja, o caractere e, usamos o índice -1, como segue: 
+
+print(Str[-1])
+
+Portanto, índices negativos não são inválidos. Um índice é inválido apenas quando ele está fora da sequência, que pode ser um número positivo ou negativo maior que o tamanho da sequência de caracteres.
+
+Atenção: o operador de indexação [ ] acessa um único caractere por vez de uma string.
+
+O código a seguir apresenta um exemplo de uso do operador de indexação que acessa cada caractere de uma frase. Analise e faça o teste de mesa do programa.
+
+frase = "Eu posso ajudar respondendo perguntas no fórum!"
+sorteio = [5, -4, 3, -8, 11]  
+acertos = 0
+for i in sorteio:
+    resposta = input("Qual o caractere de índice %d? "%(i))
+    if frase[i] == resposta:
+       print("Parabéns, você acertou!")
+       acertos+=1
+    else:
+       print("Você errou. O caractere de índice %d é: %s"%(i, frase[i]))
+print("Você acertou %d de %d perguntas."%(acertos, len(sorteio)))
+
+##############################################################################
+
+3. Percorrendo Strings
+Um grande número de aplicações envolvem o processamento de elemento por elemento de uma lista. No caso de uma string, isto significa processar um caractere de cada vez, onde o processo envolve: a partir do primeiro caractere (índice zero), selecionar um caractere de cada vez, fazer alguma coisa com ele, e continuar até o último caractere da string. Este padrão de processamento é chamado de percurso.
+Em Python, podemos percorrer uma string acessando caractere por caractere de três formas distintas, a saber: percorrendo com for por elemento, percorrendo com for por índice e usando while com índice. A seguir apresentamos cada uma delas.
+
+
+
+Percorrendo uma string com for por elemento
+O comando for pode iterar sobre cada elemento de uma Lista, seja ela uma lista de caracteres (string) ou de elementos de outros tipos. Por exemplo, em uma lista de nomes, podemos usar o for para acessar um nome de cada vez, conforme no código exemplo a seguir:
+for um_nome in ["Joe", "Amy", "Brad", "Angelina", "Zuki", "Thandi", "Paris"]:
+    convite = "Oi " + um_nome + ".  Venha para a festa nesse sabado!"
+    print(convite)
+No código do exemplo, a variável de controle do laço de repetição um_nome assumirá cada valor da lista de nomes em cada passo da repetição. Isto é, os comandos da repetição for são executados uma vez para cada nome da lista. Analise as saídas desse exemplo:
+
+Oi Joe.  Venha para a festa nesse sabado!
+Oi Amy.  Venha para a festa nesse sabado!
+Oi Brad.  Venha para a festa nesse sabado!
+Oi Angelina.  Venha para a festa nesse sabado!
+Oi Zuki.  Venha para a festa nesse sabado!
+Oi Thandi.  Venha para a festa nesse sabado!
+Oi Paris.  Venha para a festa nesse sabado!
+Como uma string é simplesmente uma sequência de caracteres, o laço for itera sobre cada caractere automaticamente (Iteração por elemento). Veja no exemplo a seguir:
+
+for um_char in "Venha para a festa":
+    print(um_char)
+Saídas:
+V
+e
+n
+h
+a
+ 
+p
+a
+r
+a
+ 
+a
+ 
+f
+e
+s
+t
+a
+ 
+Percorrendo uma string com for por índice
+O laço for também pode ser usado para indexar cada elemento de uma string. Em outras palavras, podemos acessar um caractere de uma string usando o seu índice e o operador de indexação [ ]. 
+
+Por exemplo, se quisermos acessar um caractere de cada vez da string "Venha para a festa" usando o operador de indexação, podemos fazer:
+Str = "Venha para a festa"
+for i in range(len(Str)):
+    print(Str[i])
+A fim de tornar a iteração mais genérica, no código anterior usamos a função len() para fornecer o limite (condição de parada) para a função range(). A função range() gera uma sequência de números inteiros variando de zero até o comprimento (length) da string . Esse é um padrão muito comum para percorrer qualquer lista acessando por posição por posição.
+
+De forma similar, podemos usar o for por elemento para percorrer uma sequência de números inteiros criada pela função range(), como no exemplo a seguir:
+
+for um_valor in range(10):
+    print(um_valor)
+
+
+Percorrendo uma string com while 
+O laço while também pode ser usado para indexar cada caractere de uma string, usando o seu índice e o operador de indexação [ ].
+
+Vale lembrar que ao usar o laço while é preciso: definir o valor inicial da variável de controle (índice inicial), definir o valor final da variável de controle (índice final) e lembrar de atualizar a variável de controle a cada passo da repetição, para garantir que a condição se tornará falsa e a repetição terá fim. 
+
+O código a seguir ilustra como podemos percorrer a string "Venha para a festa" com while.
+
+Str = "Venha para a festa"
+i = 0
+while i < len(Str):
+    print(Str[i])
+    i += 1
+
+###############################################################################################
+
+4. Operações básicas
+Algumas operações básicas são bastante comuns, quando manipulamos strings. Neste capítulo abordaremos algumas delas.
+
+
+Calcular o comprimento de uma String
+
+O comprimento (tamanho) de uma string pode ser dado pela função len(). Por exemplo, para imprimirmos o tamanho da string "Luther College", fazemos:
+
+print(len("Luther College"))
+
+A saída da instrução anterior será 14, ou seja, 14 caracteres (o espaço em branco também é considerado na contagem).
+
+Concatenar Strings
+
+Duas ou mais strings podem ser concatenadas (unidas em uma nova string) usando o operador de concatenação +
+
+O código a seguir apresenta exemplos de uso do operador de concatenação de strings:
+
+frase = "" # string vazia
+frase = frase + "Esta string usa " #concatenando a string vazia com outra string
+meio = '"apóstrofes" '
+fim = "como demarcador. "
+frase = frase + meio + fim # concatenando as três strings
+print("A frase: ", frase)
+print("Tem comprimento: ", len(frase)) # imprime o tamanho da nova string
+
+O código do exemplo produzirá a seguinte saída:
+
+A frase:  Esta string usa "apóstrofes" como demarcador. 
+Tem comprimento:  46
+
+
+Fatiar Strings
+
+Uma string também pode ser fatiada usando o operador de fatiamento (slice) representado pelo sinal ":". O intervalo de início e de fim da fatia é fechado à esquerda (início) e aberto à direita (fim).
+
+Para uma fatia começando do primeiro caractere (índice zero), não é necessário escrever explicitamente o zero, simplificando assim a notação para fatia = texto[:5] para o intervalo [0:5].
+
+De forma semelhante, não é necessário escrever o valor do último índice para uma fatia que vai até o final, por exemplo, fatia = texto[-6:] para definir uma fatia com os 6 últimos caracteres da string texto.
+
+Veja o exemplo a seguir: 
+
+ini, fim = 3, 7
+texto = "Eu posso ajudar respondendo perguntas no fórum!"
+fatia = texto[ ini : fim ]
+print("Seja o texto:\n", texto)
+resposta = input("Digite a string que corresponde à fatia texto[%d:%d] = "%(ini,fim))
+if resposta == fatia:
+        print("Muito bem, você acertou!!")
+else:
+        print("Você escreveu        : ", resposta)
+        print("mas o valor correto é: ", fatia)
+Exemplo de saída produzida pelo código:
+
+Seja o texto:
+ Eu posso ajudar respondendo perguntas no fórum!
+Digite a string que corresponde à fatia texto[3:7] = posso 
+Você escreveu        :  posso 
+mas o valor correto é:  poss
+Outro exemplo de saída:
+
+Seja o texto:
+ Eu posso ajudar respondendo perguntas no fórum!
+Digite a string que corresponde à fatia texto[3:7] = poss
+Muito bem, você acertou!!
+Veja mais um exemplo:
+
+ini, fim, passo = 3, 13, 2
+texto = "Eu posso ajudar respondendo perguntas no fórum!"
+fatia = texto[ ini : fim : passo ]
+resposta = input("Digite a string que corresponde à fatia texto[%d:%d:%d] = "%(ini,fim,passo))
+if resposta == fatia:
+   print("Muito bem, você acertou!!")
+else:
+   print("Você escreveu        : ", resposta)
+   print("mas o valor correto é: ", fatia)
+Este código produzirá a seguinte saída:
+
+Digite a string que corresponde à fatia texto[3:13:2] = posso ajudar
+Você escreveu        :  posso ajudar
+mas o valor correto é:  psoau
+Como strings são IMUTÁVEIS, caso você precise de uma string diferente, será necessário criar uma nova string. Para tanto, pode-se utilizar, caso desejar, fatias (partes) de outras strings, como no exemplo apresentado a seguir:
+
+texto = "Esta é uma 'string'"
+print(texto)
+novo_texto = 'Mais' + texto[6:]
+print(novo_texto)
+Este código produzirá a seguinte saída:
+
+Esta é uma 'string'
+Mais uma 'string'
+
+Desempacotar strings
+
+Em algumas situações pode ser necessário atribuir alguns caracteres (ou todos) de uma string para variáveis. Uma forma rápida e simples de se fazer isso é desempacotando a string. Por exemplo, os caracteres da string "Hello" podem um a um ser atribuído a variáveis simples, em uma única instrução como no código apresentado a seguir: 
+
+a,b,c,d,e = "Hello"
+print(a)
+print(b)
+print(c)
+print(d)
+print(e)
+As seguintes saídas serão produzidas pelo código deste exemplo:
+
+H
+e
+l
+l
+o
+
+###############################################################################################
+
+5. Comparação de Strings
+Os operadores de comparação (operadores relacionais) também funcionam com strings.
+
+Para verificar se duas strings são iguais, basta escrever uma expressão booleana usando o operador de igualdade (==), conforme no exemplo a seguir:
+word = "banana"
+if word == "banana":
+    print("Yes, we have bananas!")
+else:
+    print("Yes, we have NO bananas!")
+Outras operações de comparação são úteis para colocar palavras em ordem lexicográfica, isto é, semelhante à ordem alfabética usada em um dicionário, exceto que todas as letras maiúsculas vêm antes de todas as letras minúsculas.
+
+Considere o exemplo:
+word = "zebra"
+if word < "banana":
+    print("Your word, " + word + ", comes before banana.")
+elif word > "banana":
+    print("Your word, " + word + ", comes after banana.")
+else:
+    print("Yes, we have no bananas!")
+
+print("apple" < "banana")
+print("apple" == "Apple")
+print("apple" < "Apple")
+Saída do programa:
+
+Your word, zebra, comes after banana.
+True
+False
+False
+
+
+Letras maiúsculas e minúsculas são consideradas diferentes umas das outras. A forma como o computador sabe que eles são diferentes é que cada caractere corresponde a um valor inteiro único. Por exemplo, “A” é 65, “B” é 66, e “5” é 53.
+
+É possível descobrir o chamado valor ordinal de um caractere utilizando a função ord(), conforme exemplificado a seguir:
+
+print(ord("A"))
+print(ord("B"))
+print(ord("5"))
+
+print(ord("a"))
+print("apple" > "Apple")
+
+Em uma comparação de caracteres ou strings, o Python converte os caracteres para seus valores ordinais e compara os inteiros da esquerda para a direita. Por essa razão, no exemplo anterior “a” é maior que “A” de forma que “apple” é maior do que “Apple”
+
+Nós geralmente ignoramos a capitalização ao comparar duas palavras. No entanto, os computadores não. Uma maneira comum de resolver este problema é converter as strings para um formato padrão, tal como todas as letras minúsculas, antes de realizar a comparação.
+
+Há também uma função semelhante chamada chr que converte inteiros para o seu caractere equivalente, como no exemplo que segue:
+
+print(chr(65))
+print(chr(66))
+print(chr(49))
+print(chr(53))
+print("O caractere correspondente a 32 e",chr(32),"!!!")
+print(ord(" "))
+
+###############################################################################################
+
+6. Operadores in e not in
+Por definição, uma string é uma substring de si mesmo, e a string vazia é um substring de qualquer outra string.
+
+O operador in é útil quando queremos verificar se um caractere ou uma substring pertence a uma string. Veja alguns exemplos no código a seguir. 
+
+Exemplo:
+
+print('a' in 'a')
+print('apple' in 'apple')
+print('' in 'a')
+print('' in 'apple')
+Saídas produzidas:
+
+True
+True
+True
+True
+
+O operador not in retorna o resultado lógico oposto do resultado retornado por in. Veja alguns exemplos a seguir:
+
+print('app' not in 'apple')
+print('' not in 'a')
+print('apple' not in 'apple')
+Saídas produzidas:
+
+False
+False
+False
+
+Veja a seguir outro exemplo de programa que utiliza os operadores not in. O objetivo do programa é retirar as vogais de uma string fornecida pelo usuário e imprimir a nova string.
+
+palavra=input("Digite uma palavra: ")
+vogais = "aeiouAEIOU"
+str_sem_vogais = ""
+for cada_letra in palavra:
+    if cada_letra not in vogais:
+          str_sem_vogais = str_sem_vogais + cada_letra
+print(str_sem_vogais)
+
+Exemplo de execução:
+
+Digite uma palavra: Araraquara
+rrqr
+
+###############################################################################################
+
+7. Repetições e Contagens
+Em várias aplicações é necessário verificar o número de vezes que um caractere em particular aparece em uma string ou mesmo a posição na string em que o caractere ocorre pela primeira vez.
+O código a seguir apresenta uma forma de contar o números de vezes que o caractere aparece em uma string, percorrendo a string usando for por elemento. No Capítulo 8 veremos outra forma de fazer isso usando o método count().
+
+palavra=input("Digite uma palavra: ")
+caractere=input("Digite um caractere a ser contado: ")
+contador = 0
+for letra in palavra:
+    if letra == caractere:
+            contador = contador + 1
+print("A letra %s aparece %d vezes na palavra %s" % (caractere, contador, palavra))
+
+O código a seguir mostra a posição da primeira ocorrência de uma letra em particular em uma string:
+
+palavra=input("Digite uma palavra: ")
+caractere=input("Digite um caractere a ser encontrado: ")
+indice = 0
+existe_letra = False
+while indice < len(palavra) and not existe_letra:
+    if palavra[indice] == caractere:
+            existe_letra = True
+    else:
+            indice = indice + 1
+if existe_letra:
+    print("A primeira ocorrência do caractere %s na palavra %s está na posição %d" % (caractere, palavra, indice))
+else:
+    print("Não há ocorrência do caractere %s na palavra %s!" % (caractere, palavra))
+
+
+###############################################################################################
+
+8. Métodos de Strings
+Há uma grande variedade de métodos pré-definidos em Python para a manipulação de strings. A tabela a seguir apresenta alguns principais com uma breve descrição da sua função. 
+
+Métodos
+
+Observe na tabela que alguns métodos não têm parâmetros enquanto outros têm. Por exemplo, upper() e lower() não precisam de parâmetros. Para usá-los, seguimos a sintaxe: nome_da_string.upper() ou nome_da_string.lower(). Os métodos strip(), lstrip() e rstrip() têm sintaxe semelhante a esses dois.  Veja e teste os exemplos que seguem:
+
+ss = "Hello, World"
+print(ss.upper())
+tt = ss.lower()
+print(tt)
+O método count(), por sua vez, precisa receber o item (caractere) a ser contado como parâmetro, conforme segue no código do exemplo. Já replace() requer duas substrings como parâmetro, ou seja, a  substring atual pertencente a string e a substring que a substituirá. Teste o código a seguir para melhor compreendê-lo:
+
+ss = "    Hello, World    "
+
+els = ss.count("l")
+print(els)
+
+print("***"+ss.strip()+"***")
+print("***"+ss.lstrip()+"***")
+print("***"+ss.rstrip()+"***")
+
+news = ss.replace("o", "***")
+print(news)
+Outro exemplo:
+
+food = "banana bread"
+print(food.capitalize())
+
+print("*"+food.center(25)+"*")
+print("*"+food.ljust(25)+"*") 
+print("*" +food.rjust(25)+"*")
+
+print(food.find("e"))
+print(food.find("na"))
+print(food.find("b"))
+
+print(food.rfind("e"))
+print(food.rfind("na"))
+print(food.rfind("b"))
+
+print(food.index("e"))
+Existem ainda muitos outros métodos úteis: isalnum(), isalpha(), isdigit(), islower(), isspace(), isupper(), entre outros. 
+
+Teste o código a seguir considerando como entrada as strings "Araraquara" e depois "1234", para entender o funcionamento de cada método:
+
+teste_str=input("Digite um valor: ")
+print(teste_str, " capitalize",teste_str.capitalize())
+print(teste_str," center",teste_str.center(20))
+print(teste_str," count",teste_str.count("a"))
+print(teste_str," find",teste_str.find("ara"))
+print(teste_str," isalnum",teste_str.isalnum())
+print(teste_str," isalpha",teste_str.isalpha())
+print(teste_str," isdigit",teste_str.isdigit())
+print(teste_str," replace",teste_str.replace("a","o"))
+
+###############################################################################################
+
+9. Classificação de Caracteres
+Muitas vezes, é útil examinar um caractere e testar se ele é maiúsculo ou minúsculo, ou se é uma letra ou um dígito.
+
+O módulo string fornece várias constantes que são úteis para esses fins.
+
+Um exemplo é a constante string.digits, equivalente a “0123456789”, que pode ser usada para verificar se um caractere é um dígito, usando para tanto o operador in.
+
+A constante string.ascii_lowercase contém todas as letras ASCII que o sistema considera serem minúsculas.
+
+Da mesma forma, string.ascii_uppercase contém todas as letras maiúsculas e string.punctuation contem todos os caracteres considerados símbolos de pontuação.
+
+Teste o código para verificar o conteúdo das constantes:
+
+import string 
+print(string.ascii_lowercase)
+print(string.ascii_uppercase)
+print(string.digits)
+print(string.punctuation)
+
+O código a seguir verifica se o valor digitado é um número inteiro positivo e ilustra o uso da constante string.digits:
+
+nro_ok=False
+while not nro_ok:
+    nro=input("Digite um número inteiro positivo: ")
+    nro_ok=True
+    for i in nro:
+        if i not in string.digits:
+            nro_ok=False
+    if not nro_ok:
+        print("O valor digitado não é um número inteiro positivo!")
+nro=int(nro) #faz a conversão
+print("O valor digitado é: ",nro)
+
+O código a seguir verifica se o valor digitado é um número inteiro positivo utilizando o método isdigit():
+nro_ok=False
+while not nro_ok:
+    nro=input("Digite um número inteiro positivo: ")
+    nro_ok=nro.isdigit()
+    if not nro_ok:
+        print("O valor digitado não é um número inteiro positivo!")
+
+nro=int(nro) #faz a conversão
+print("O valor digitado é: ",nro)
+
+###############################################################################################
+
+10. Representação de Caracteres
+Um conhecimento importante para trabalhar com strings é conhecer a sua forma de representação (encoding).
+
+Uma grande diferença entre as versões 2.X e 3.X do Python é que, na versão 2.X as strings são codificadas em ASCII e na versão 3.X em UTF-8. No ASCII (American Standard Code for Information Interchange), cada caractere é representado usando apenas 7 bits, sendo que os caracteres de 0 a 31 são considerados de controle, e os de 32 a 127 correspondem aos caracteres comuns de um teclado de computador em inglês.
+
+Teste o exemplo para ver os caracteres de 32 a 127. Observe que o número inteiro é convertido em caractere com chr():
+print("Tabela ASCII de 32 a 127: ")
+
+for i in range(32, 128, 3):
+
+    print("ASCII[ %3d ] = '%s'  |  ASCII[ %3d ] = '%s'  |  ASCII[ %3d ] = '%s'"%
+
+    (i, chr(i), i+1, chr(i+1), i+2, chr(i+2)))
+
+A função chr() converte um índice da tabela ASCII em seu caractere correspondente.
+
+Observe que a ordem dos caracteres na tabela não é arbitrária: os caracteres de a a z (tanto minúsculos quanto maiúsculos) estão agrupados sequencialmente, respeitando a ordem alfabética.
+
+Não há caracteres acentuados, pois estes não fazem parte da língua inglesa.
+
+O Unicode é um conjunto de caracteres que inclui os símbolos de todas as línguas humanas, desde os milhares de caracteres de línguas asiáticas como o chinês, até os caracteres de línguas mortas como os hieróglifos usados pelos egípcios.
+
+Para representar os caracteres do Unicode, foram desenvolvidos diversas formas de codificação. Uma delas é a UTF-32 (U de Universal Character Set e o TF de Transformation Format - usando 32 bits).
+
+Essa forma utiliza sempre 32 bits (ou 4 bytes) para codificar um caractere (ou, mais exatamente, para codificar o índice do caractere na tabela Unicode).
+
+O UTF-32 não é muito utilizado hoje pois, apesar de ser simples de decodificar, seus arquivos tornam-se muito grandes.
+
+O UTF-16 exige ao menos 2 bytes (16 bits) para codificar cada caractere, criando arquivos menores em geral. Esse padrão é utilizado na linguagem Java e em sistemas operacionais como o Microsoft Windows e o Mac OS X.
+
+Já o padrão mais utilizado para codificar páginas na Internet atualmente é o UTF-8, que usa pelo menos 8 bits para representar cada caractere.
