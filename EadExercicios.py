@@ -16,6 +16,16 @@ print('Tratamento de strings como lista (vetores)');
 stringEscrita = input('Digite seu "nome por completo" com maiúsculas e minúsculas para operações com string: ')
 print("String digitada: \n", stringEscrita);
 print('Digite a operação que gostaria realizar: ');
+print('1: Digite a posição que deseja ver o caracter na string digitada:')
+print('2: Digite o caracter que você deseja substituir/remover da String digitada:')
+print('3: Total de caracteres maiúsculas e minúsculas: ')
+print('4: Validando palíndromo: ')
+print('5: Contador de palavras: ')
+print('6: Imprimir em escada: ')
+print('7: Escreva de tras para frente: ')
+print('8: ')
+print('9: ')
+print('10: ')
 opcao = int(input('Opção de 1 á 10: '));
 if (opcao==1):
     print('Opção 1');
@@ -47,6 +57,7 @@ elif(opcao==3):
     for i in stringEscrita:
         if i.islower():
             print(i, 'caractér minúsculo');
+
         else:
             print(i, 'CARACTÉR MAÍSCULO');
 #print('');
@@ -98,6 +109,9 @@ elif (opcao==6):
 # 7. Faça um programa que permita ao usuário digitar o seu nome e em
 # seguida mostre-o de trás para frente utilizando somente letras
 # maiúsculas.
+elif (opcao==7):
+    for i in range(0, len(stringEscrita)+1):
+        print(stringEscrita.upper()[::-1]);
 
 # 9. Um anagrama é uma palavra que é feita a partir da transposição das
 # letras de outra palavra ou frase. Por exemplo, “Iracema” é um
