@@ -25,7 +25,7 @@ while ( opcao != 4 ):
             input("Digite <ENTER> para continuar...")
         elif (opcao == 4):
             print()
-            print("Saindo do sistema...")
+            print("Saindo do sistema...")   
 print()
 print()
 print("*** Sistema finalizado! ***")
